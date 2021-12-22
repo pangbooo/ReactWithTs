@@ -1,0 +1,62 @@
+.xButton {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 6px 1em;
+    border-radius: 4px;
+    color: white;
+    font-family: inherit;
+    background-color: black;
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+    &.primary {
+        background-color: #09f;
+    }
+    &.warning {
+        background-color: #f90;
+    }
+    &.info {
+        background-color: #c03;
+    }
+    &.pure {
+        border: 1px solid #ccc;
+        color: rgba(0, 0, 0, 0.65);
+        &::after {
+            background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+        }
+    }
+
+    &.circle {
+        border-radius: 1.5em;
+    }
+
+    &.block {
+        display: block;
+    }
+}
+
+.ripple {
+    position: relative;
+    overflow: hidden;
+    &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: radia-gradient(circle, #fff 10%, transparent 11%);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        transform: scale(12, 12);
+        opacity: 0;
+        transition: transform .6s, opacity .6s;    
+    }
+    &:avtive::after {
+        transform: scale(0, 0);
+        opacity: .3;
+        //设置初始状态
+        transition: 0s;
+    }
+}
