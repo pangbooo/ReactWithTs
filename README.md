@@ -44,3 +44,17 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## vscode 插件
+### 1. EditorConfig for VS Code（必装）
+根据项目内的配置文件.editconfig 统一格式
+
+### 2. Eslint（必装）
+根据.eslintrc.json 检查代码
+
+## 3. Sonalint
+配置后可以根据sonarqube服务器的profile文件实时进行check
+
+## 4. Scss formatter
+## 5. Code Spell Checker
+英文单词拼写错误检查
