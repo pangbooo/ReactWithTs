@@ -1,0 +1,27 @@
+.xDrawerWrap {
+    top: 0;
+    height: 100%;
+
+    .xDrawerMask {
+        background: black;
+        opacity: 0.2;
+        height: 100%;
+        position: absolute;
+        top: 0;
+    }
+
+    .xDrawerContent {
+        padding: 20px;
+    }
+    
+    .xCloseButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 14px;
+        padding: 5px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+}
