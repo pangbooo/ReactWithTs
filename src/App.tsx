@@ -1,17 +1,20 @@
+import { useDispatch } from 'react-redux';
 import styles from './App.module.scss';
 import Button from './Components/Button';
 import ProgressBar from './Components/ProgressBar';
 import Drawer from './Components/Drawer';
 import { useState } from 'react';
+import { fetchValue } from './store/dataFetcher';
 
 function App() {
-  const [isVisiable, setIsVisiable] = useState(false);
+  const dispatch = useDispatch();
+  const [isVisible, setIsVisible] = useState(false);
   function handleClick() {
-    console.log('click event');
+    dispatch(fetchValue());
   }
 
   function handleToggleDrawer() {
-    setIsVisiable(!isVisiable);
+    setIsVisible(!isVisible);
   }
 
   return (
@@ -45,7 +48,7 @@ function App() {
         <h2>Drawer</h2>
         <Button onClick={handleToggleDrawer}>Click to toggle Drawer</Button>
         <Drawer
-          visible = {isVisiable}
+          visible = {isVisible}
           maskClosable
           drawerStyle = {{
             hight: '100%',

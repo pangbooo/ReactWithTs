@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+Content-Type: text/xml; charset=utf-8
+
+{
+  "success": true,
+  "result": {
+    "valueType": "add",
+    "value": 1
+  }
+}

@@ -1,5 +1,17 @@
 {
   "root": true,
+  "rules": {
+    "no-redeclare": "off",
+    "@typescript-eslint/no-redeclare": [1],
+    "@typescript-eslint/default-param-last": [1],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE"]
+      }
+    ]
+  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
