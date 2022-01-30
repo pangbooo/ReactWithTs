@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import styles from './index.module.scss';
+import { useAppSelector } from '../../hooks';
 
 type Props = {
   children: React.ReactNode,
@@ -13,11 +14,14 @@ type Props = {
 
 export default function Button(props: Props) {
   const { children, onClick, className, type = '', shape = 'radius', block } = props;
+  const count = useAppSelector(state => state.counterFlow.value);
+
   return (
         <div className={classnames(styles.xButton, styles.ripple, styles[type], styles[shape], block ?  styles.block : '', className)}
              onClick={onClick}
         >
             {children}
+            <div>count: {count}</div>
         </div>
   );
 }

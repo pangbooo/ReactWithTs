@@ -1,16 +1,30 @@
-import { useDispatch } from 'react-redux';
 import styles from './App.module.scss';
 import Button from './Components/Button';
 import ProgressBar from './Components/ProgressBar';
 import Drawer from './Components/Drawer';
 import { useState } from 'react';
-import { fetchValue } from './store/dataFetcher';
+import { useAppDispatch, useAppSelector } from './hooks';
+import { increment } from './store/reducers';
+import { fetchValue, fetchValueAsyncByHandle } from './store/dataFetcher';
+
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [isVisible, setIsVisible] = useState(false);
-  function handleClick() {
-    dispatch(fetchValue());
+  const state = useAppSelector((state) => state);
+  function handleSyncClick() {
+    // sync function
+    dispatch(increment());
+  }
+
+  function handleAsyncClick() {
+    // async function
+    dispatch(fetchValue(1));
+  }
+
+  function handleAsyncClick2() {
+    // async function by handle
+    dispatch(fetchValueAsyncByHandle(1));
   }
 
   function handleToggleDrawer() {
@@ -19,11 +33,12 @@ function App() {
 
   return (
     <div className="App">
+      State: {JSON.stringify(state, null, 2)}
       <div className={styles.container}>
         <h2>Button</h2>
-        <Button className={styles.mr10} onClick={handleClick}>default</Button>
-        <Button className={styles.mr10} type='primary'>primary</Button>
-        <Button className={styles.mr10} type='warning'>warning</Button>
+        <Button className={styles.mr10} onClick={handleSyncClick}>default</Button>
+        <Button className={styles.mr10} type='primary' onClick={handleAsyncClick}>primary</Button>
+        <Button className={styles.mr10} type='warning' onClick={handleAsyncClick2}>warning</Button>
         <Button className={styles.mr10} type='info'>info</Button>
         <Button className={styles.mr10} type='pure'>pure</Button>
         <Button className={styles.mr10} type='primary' shape='circle'>circle</Button>
