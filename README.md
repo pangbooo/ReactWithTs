@@ -58,3 +58,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## 4. Scss formatter
 ## 5. Code Spell Checker
 英文单词拼写错误检查
+
+## use Redux with Redux Toolkit
+please read [ReduxToolkit.md](https://github.com/pangbooo/ReactWithTs/blob/Toolkit/ReduxToolkit.md)
